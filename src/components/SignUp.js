@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import formSchema from '../verification';
-import { reach } from "yup";
+import useForm from "../hooks/useForm";
 
 const defaultValues = {
     username: "",
@@ -11,29 +11,13 @@ const defaultValues = {
 
 export default function SignUp() {
 
-    const [formValues, setFormValues] = useState(defaultValues);
-    const [error, setError] = useState(true);
+    const [formValues, error, reset, change] = useForm(formSchema, defaultValues);
 
-    useEffect(() => {
-        formSchema.validate(formValues)
-            .then(() => setError(false))
-            .catch(() => setError(true))
-    }, [formValues])
 
-    const change = evt => {
-        const {name, value} = evt.target;
-        reach(formSchema, name)
-            .validate(value)
-            .then(() => setError(false))
-            .catch(() => setError(true))
-            .finally(() => 
-                setFormValues({...formValues, [name]: value})
-            )
-    }
     const submit = evt => {
         evt.preventDefault();
         // api post request goes here
-        setFormValues(defaultValues)
+        reset()
     }
 
     return (
