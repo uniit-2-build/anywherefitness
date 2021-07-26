@@ -63,7 +63,9 @@ export default function SignUp() {
                     value={formValues.email}
                 />
             </label>
-            <button disabled={error}
+            <button 
+            data-cy="submit"
+            disabled={error}
             type="submit">Create Account</button>
         </form>
     )
