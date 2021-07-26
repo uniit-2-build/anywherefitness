@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
+import formSchema from '../verification';
+import { reach } from "yup";
 
 const defaultValues = {
     username: "",
     password: "",
+    confirmPassword: "",
     email: "",
 }
 
 export default function SignUp() {
 
-    const [formValues, setFormValues] = useState(defaultValues)
+    const [formValues, setFormValues] = useState(defaultValues);
+    const [error, setError] = useState("")
     const change = evt => {
         const {name, value} = evt.target;
-        setFormValues({...formValues, [name]: value})
+        reach(formSchema, name)
+            .validate(value)
+            .then(() => setError(""))
+            .catch(err => setError(err))
+            .finally(() => 
+                setFormValues({...formValues, [name]: value})
+            )
     }
     const submit = evt => {
         evt.preventDefault();
@@ -42,6 +52,16 @@ export default function SignUp() {
                     value={formValues.password}
                 />
             </label>
+            <label for="confirmPassword">
+                Confirm Password:
+                <input 
+                    type="password"
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    onChange={change}
+                    value={formValues.confirmPassword}
+                />
+            </label>
             <label for="email">
                 Email:
                 <input 
@@ -52,7 +72,8 @@ export default function SignUp() {
                     value={formValues.email}
                 />
             </label>
-            <button type="submit">Create Account</button>
+            <button disabled={error}
+            type="submit">Create Account</button>
         </form>
     )
 }
