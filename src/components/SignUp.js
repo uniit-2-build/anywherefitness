@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import formSchema from '../verification';
+import React from 'react';
+import { Link } from "react-router-dom";
+import { signUpSchema } from '../verification';
 import useForm from "../hooks/useForm";
 
 const defaultValues = {
@@ -11,7 +12,7 @@ const defaultValues = {
 
 export default function SignUp() {
 
-    const [formValues, error, reset, change] = useForm(formSchema, defaultValues);
+    const [formValues, error, reset, change] = useForm(signUpSchema, defaultValues);
 
 
     const submit = evt => {
@@ -67,6 +68,7 @@ export default function SignUp() {
             data-cy="submit"
             disabled={error}
             type="submit">Create Account</button>
+            <Link to="/login">Already have an account?</Link>
         </form>
     )
 }

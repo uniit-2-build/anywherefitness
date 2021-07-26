@@ -1,5 +1,6 @@
 import React from 'react';
-import formSchema from '../verification';
+import { loginSchema } from '../verification';
+import { Link } from "react-router-dom";
 import useForm from '../hooks/useForm';
 
 const defaultValues = {
@@ -9,7 +10,7 @@ const defaultValues = {
 
 export default function Login() {
 
-    const [formValues, error, reset, change] = useForm(formSchema, defaultValues)
+    const [formValues, error, reset, change] = useForm(loginSchema, defaultValues)
 
     const submit = evt => {
         evt.preventDefault();
@@ -41,7 +42,8 @@ export default function Login() {
                 />
             </label>
             <button disabled={error}
-            type="submit">Create Account</button>
+            type="submit">Login</button>
+            <Link to="/sign-up">Create an account?</Link>
         </form>
     )
 }
