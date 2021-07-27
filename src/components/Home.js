@@ -18,7 +18,7 @@ const defaultSearch = {
 
 export default function Home() {
     // all classes return by api
-    const [initialData, setInitialData] = useState();
+    const [initialData, setInitialData] = useState([]);
     
     const [formValues, error, reset, change] = useForm(searchSchema, defaultSearch);
 
@@ -31,7 +31,7 @@ export default function Home() {
                 .then(res => setInitialData(res.data))
                 .catch(err => console.log(err))
         }
-        getData();
+        // getData();
     }, [])
 
     return (
@@ -128,7 +128,11 @@ export default function Home() {
                         onChange={change}
                     />
                 </label>
-                <button onClick={reset} type="reset">Reset</button>
+                <button 
+                    data-cy="reset"
+                    onClick={reset} 
+                    type="reset"
+                >Reset</button>
             </form>
             <ClassesList classes={filteredData} />
         </div>
