@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from "../hooks/useForm";
-import { classSchema } from "../verification"
+import classSchema from "../verification/classSchema"
 
 const defaultForm = {
     name: "",

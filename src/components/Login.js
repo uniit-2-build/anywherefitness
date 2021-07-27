@@ -1,5 +1,5 @@
 import React from 'react';
-import { loginSchema } from '../verification';
+import loginSchema from '../verification/loginSchema';
 import { Link } from "react-router-dom";
 import useForm from '../hooks/useForm';
 
