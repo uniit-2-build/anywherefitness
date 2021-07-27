@@ -16,13 +16,19 @@ export const loginSchema = yup.object().shape({
     password: yup.string().required().min(5),
     authentication: yup.string(),
 })
+const today = new Date();
+const dd = String(today.getDate()).padStart(2, '0');
+const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+const yyyy = today.getFullYear();
 
+const todayString = `${mm}/${dd}/${yyyy}`;
 export const classSchema = yup.object().shape({
     name: yup.string().required(),
     type: yup.string().required(),
-    start: yup.date().required(),
-    duration: yup.number().required(),
+    startTime: yup.string().required(),
+    startDate: yup.date().required().min(todayString),
+    duration: yup.number().required().min(5),
     intensity: yup.number().required().min(1).max(10),
     location: yup.string().required(),
-    max: yup.number().required(),
+    max: yup.number().required().min(1),
 })

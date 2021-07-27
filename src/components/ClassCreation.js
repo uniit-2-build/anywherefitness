@@ -5,7 +5,8 @@ import { classSchema } from "../verification"
 const defaultForm = {
     name: "",
     type: "",
-    start: "",
+    startTime: "",
+    startDate: "",
     location: "",
     duration: 0 || null,
     intensity: 0 || null,
@@ -46,14 +47,25 @@ export default function ClassCreation() {
                     onChange={change}
                 />
             </label>
-            <label for="start">
+            <label for="startTime">
                 Start Time:
                 <input 
-                    data-cy="class-start"
-                    type="datetime"
-                    name="start"
-                    id="start"
-                    value={formValues.start}
+                    data-cy="class-time"
+                    type="time"
+                    name="startTime"
+                    id="startTime"
+                    value={formValues.startTime}
+                    onChange={change}
+                />
+            </label>
+            <label for="startDate">
+                Start Date:
+                <input 
+                    data-cy="class-date"
+                    type="date"
+                    name="startDate"
+                    id="startDate"
+                    value={formValues.startDate}
                     onChange={change}
                 />
             </label>
