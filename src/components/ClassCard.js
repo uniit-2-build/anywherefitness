@@ -12,8 +12,8 @@ export default function ClassCard(props) {
         max
     }} = props;
     return (
-        <div>
+        <li>
             
-        </div>
+        </li>
     )
 }
