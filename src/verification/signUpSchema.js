@@ -8,5 +8,6 @@ const signUpSchema = yup.object().shape({
         .required()
         .oneOf([yup.ref('password'), null], 'Passwords must match'), // verifies that the password is the same as confirm field
     email: yup.string().email().required().min(5),
+    authentication: yup.string(),
 })
 export default signUpSchema;

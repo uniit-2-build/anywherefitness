@@ -21,7 +21,7 @@ export default function Login() {
 
     return (
         <form onSubmit={submit}>
-            <h2>Create an Account:</h2>
+            <h2>Login:</h2>
             <label for="username">
                 Username:
                 <input 

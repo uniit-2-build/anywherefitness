@@ -8,6 +8,7 @@ const defaultValues = {
     password: "",
     confirmPassword: "",
     email: "",
+    authentication: "",
 }
 
 export default function SignUp() {
@@ -64,10 +65,21 @@ export default function SignUp() {
                     value={formValues.email}
                 />
             </label>
+            <label for="authentication">
+                Optional Authentication Code (if you want to be an instructor):
+                <input 
+                    type="text"
+                    name="authentication"
+                    id="authentication"
+                    onChange={change}
+                    value={formValues.authentication}
+                />
+            </label>
             <button 
-            data-cy="submit"
-            disabled={error}
-            type="submit">Create Account</button>
+                data-cy="submit"
+                disabled={error}
+                type="submit"
+            >Create Account</button>
             <Link to="/login">Already have an account?</Link>
         </form>
     )

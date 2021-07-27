@@ -31,6 +31,7 @@ const nameInput = () => cy.get("[name='username']")
 const passwordInput = () => cy.get("[name='password']")
 const confirmPasswordInput = () => cy.get("[name='confirmPassword']")
 const emailInput = () => cy.get("[name='email']")
+const authInput = () => cy.get("[name='authentication']")
 const submitInput = () => cy.get("[data-cy='submit']")
 
 const allInputs = [
@@ -38,11 +39,13 @@ const allInputs = [
     passwordInput, 
     confirmPasswordInput, 
     emailInput, 
-    submitInput
+    submitInput,
+    authInput
 ]
 const allTextInputs = [
     nameInput, 
     passwordInput, 
     confirmPasswordInput, 
-    emailInput
+    emailInput,
+    authInput
 ]

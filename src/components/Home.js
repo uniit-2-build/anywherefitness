@@ -17,7 +17,7 @@ const defaultSearch = {
 } 
 
 export default function Home() {
-    // all classes return by api
+    // all classes returned by api
     const [initialData, setInitialData] = useState([]);
     
     const [formValues, error, reset, change] = useForm(searchSchema, defaultSearch);
@@ -107,7 +107,6 @@ export default function Home() {
                 <label for="intensity">
                     Intensity (1 to 10):
                     <input 
-                        step={1}
                         data-cy="class-intensity"
                         type="number"
                         name="intensity"
@@ -120,7 +119,6 @@ export default function Home() {
                     Max participants:
                     <input 
                         data-cy="class-max"
-                        step={1}
                         type="text"
                         name="max"
                         id="max"
