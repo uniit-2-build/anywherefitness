@@ -1,12 +1,11 @@
 import React from 'react';
-import { loginSchema } from '../verification';
+import loginSchema from '../verification/loginSchema';
 import { Link } from "react-router-dom";
 import useForm from '../hooks/useForm';
 
 const defaultValues = {
     username: "",
     password: "",
-    authentication: ""
 }
 
 export default function Login() {
@@ -40,16 +39,6 @@ export default function Login() {
                     id="password"
                     onChange={change}
                     value={formValues.password}
-                />
-            </label>
-            <label for="authentication">
-                Authentication: (only for intructors)
-                <input 
-                    type="password"
-                    name="authentication"
-                    id="authentication"
-                    onChange={change}
-                    value={formValues.authentication}
                 />
             </label>
             <button disabled={error}

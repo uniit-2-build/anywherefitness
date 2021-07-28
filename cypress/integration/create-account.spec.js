@@ -6,7 +6,7 @@ describe("sign up form test", () => {
     it("input exists", () => {
         allInputs.forEach(input => input().should("exist"))
     })
-    it("inputs type propperly", () => {
+    it("inputs type properly", () => {
         allTextInputs.forEach(input => 
             input()
                 .should("have.value", "")

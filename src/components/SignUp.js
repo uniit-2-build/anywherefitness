@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { signUpSchema } from '../verification';
+import signUpSchema from '../verification/signUpSchema';
 import useForm from "../hooks/useForm";
 
 const defaultValues = {
@@ -65,9 +65,10 @@ export default function SignUp() {
                 />
             </label>
             <button 
-            data-cy="submit"
-            disabled={error}
-            type="submit">Create Account</button>
+                data-cy="submit"
+                disabled={error}
+                type="submit"
+            >Create Account</button>
             <Link to="/login">Already have an account?</Link>
         </form>
     )

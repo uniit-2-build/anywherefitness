@@ -13,7 +13,6 @@ export default function ClassCard(props) {
     }} = props;
     return (
         <li>
-            
         </li>
     )
 }
