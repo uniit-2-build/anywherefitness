@@ -19,19 +19,19 @@ const defaultSearch = {
 export default function Home() {
     // all classes return by api
     const [initialData, setInitialData] = useState([]);
-    
     const [formValues, error, reset, change] = useForm(searchSchema, defaultSearch);
-
+    
     const filteredData = useSearch(initialData, formValues)
-
+    
     useEffect(() => {
+        const url = "https://anywherefitnessunit4.herokuapp.com/api/users"
         const getData = () => {
             axios
-                .get("")
+                .get(url)
                 .then(res => setInitialData(res.data))
                 .catch(err => console.log(err))
         }
-        // getData();
+        getData();
     }, [])
 
     return (

@@ -8,8 +8,14 @@ const useSearch = (initialData, searchQuery) => {
         const reducerCallback = (searchedFor, term) => {
             // if that query isnt filled out tehn skip it
             if (!searchQuery[term]) return searchedFor;
-            // if they dont match then set the reducer to false
-            return Class[term].includes(searchQuery[term]) ? false : searchedFor; // if they do than keep the reducer the same 
+            // check if the search term is a string
+            if (searchQuery[term] == "") {
+                // if they dont match then set the reducer to false
+                return Class[term].includes(searchQuery[term]) ? false : searchedFor; // if they do than keep the reducer the same 
+            } else { // if its not a string its a number
+                // if they dont match then set the reducer to false
+                return Class[term] === searchQuery[term] ? false : searchedFor; // if they do than keep the reducer the same 
+            }
         }
         // loop through every key and see of the terms match at least partially
         const isSearchedFor = searchTerms.reduce(reducerCallback, true)
