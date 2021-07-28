@@ -1,7 +1,9 @@
 [build]
-  command = "npm run build"
-  publish="path-to-react-app/build"
-  base = "path-to-react-app"
+  command = "CI='' react-scripts build"  
+  functions = "netlify/functions"    
+  publish = "/build"    
+  NODE_VERSION = "14.15.4"     
+  NPM_VERSION = "7.20.2"`
 [[redirects]]
   from = "/*"
   to = "/index.html"
