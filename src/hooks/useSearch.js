@@ -11,10 +11,10 @@ const useSearch = (initialData, searchQuery) => {
             // check if the search term is a string
             if (searchQuery[term] == "") {
                 // if they dont match then set the reducer to false
-                return Class[term].includes(searchQuery[term]) ? false : searchedFor; // if they do than keep the reducer the same 
+                return Class[term].includes(searchQuery[term]) ? searchedFor : false; // if they do than keep the reducer the same 
             } else { // if its not a string its a number
                 // if they dont match then set the reducer to false
-                return Class[term] === searchQuery[term] ? false : searchedFor; // if they do than keep the reducer the same 
+                return Class[term] === searchQuery[term] ? searchedFor : false; // if they do than keep the reducer the same 
             }
         }
         // loop through every key and see of the terms match at least partially
