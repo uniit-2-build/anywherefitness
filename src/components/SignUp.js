@@ -29,6 +29,13 @@ h2 {
 `;
 
 const sharedStyles = css`
+	background-color: #eee;
+
+	border-radius: 5px;
+	border: 1px sold #ddd;
+	margin: 10px 0 20px 0;
+	padding: 20px;
+	box-sizing: border-box;
 `;
 
 
@@ -44,12 +51,35 @@ const StyledForm = styled.form`
 
 
 const StyledInput = styled.label`
+	display: block;
+	width: 100%;
+	${sharedStyles};
 `;
 
 const StyledButton = styled.button`
+	display: block;
+	background-color: #ade8f4;
+	color: #0077b6;
+	font-size: 0.9rem;
+	border: 0;
+	border-radius: 5px;
+	height: 40px;
+    width: 11rem;
+	padding: 0 20px;
+    //====SPACE BETWEEN BUTTON AND EMAIL=====
+    margin-top: 3rem;
+	cursor: pointer;
+	box-sizing: border-box;
+    
+    
 `;
 
-const StyledLink = styled.link`
+const StyledLink = styled.label`
+color: #ffff;
+display: flex;
+justify-content: center;
+
+
 `;
 
 const defaultValues = {
@@ -81,7 +111,7 @@ export default function SignUp() {
 				<StyledForm onSubmit={submit}>
 					<label for="username">
 						Username:
-						<input
+						<StyledInput
 							type="text"
 							name="username"
 							id="username"
@@ -91,7 +121,7 @@ export default function SignUp() {
 					</label>
 					<label for="password">
 						Password:
-						<input
+						<StyledInput
 							type="password"
 							name="password"
 							id="password"
@@ -101,7 +131,7 @@ export default function SignUp() {
 					</label>
 					<label for="confirmPassword">
 						Confirm Password:
-						<input
+						<StyledInput
 							type="password"
 							name="confirmPassword"
 							id="confirmPassword"
@@ -111,7 +141,7 @@ export default function SignUp() {
 					</label>
 					<label for="email">
 						Email:
-						<input
+						<StyledInput
 							type="email"
 							name="email"
 							id="email"
@@ -119,12 +149,12 @@ export default function SignUp() {
 							value={formValues.email}
 						/>
 					</label>
-					<button data-cy="submit" disabled={error} type="submit">
+					<StyledButton data-cy="submit" disabled={error} type="submit">
 						Create Account
-					</button>
+					</StyledButton>
 
-					<Link to="/login">Already have an account?</Link>
 				</StyledForm>
+					<StyledLink to="/login">Already have an account?</StyledLink>
 			</>
 		);
 }
