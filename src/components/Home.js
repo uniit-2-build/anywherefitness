@@ -4,6 +4,35 @@ import useForm from '../hooks/useForm';
 import useSearch from '../hooks/useSearch';
 import searchSchema from "../verification/searchSchema"
 import ClassesList from "./ClassesList";
+import styled, { createGlobalStyle, css } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+`
+
+const sharedStyles = css`
+`
+
+const StyledFormWrapper = styled.div`
+`
+
+const StyledForm = styled.form`
+`
+
+const StyledInput = styled.input`
+`
+
+const StyledTextArea = styled.textarea`
+`
+
+const StyledButton = styled.button`
+`
+
+const StyledFieldset = styled.fieldset`
+`
+
+const StyledError = styled.div`
+`
+
 
 const defaultSearch = {
     name: "",
@@ -17,6 +46,7 @@ const defaultSearch = {
 } 
 
 export default function Home() {
+
     // all classes return by api
     const [initialData, setInitialData] = useState([]);
     const [formValues, error, reset, change] = useForm(searchSchema, defaultSearch);
@@ -35,11 +65,20 @@ export default function Home() {
     }, [])
 
     return (
+
+
         <div>
+        <>
+        <GlobalStyle />
+            <StyledFormWrapper>
+            <StyledForm>
+        
+        
+            <h2>Class Timetable</h2>
             <form onSubmit={e => e.preventDefault()}>
-                <label for="name">
+                <label htmlFor="name">
                     Name:
-                    <input 
+                    <StyledInput 
                         data-cy="class-name"
                         type="text"
                         name="name"
@@ -48,9 +87,9 @@ export default function Home() {
                         onChange={change}
                     />
                 </label>
-                <label for="type">
+                <label htmlFor="type">
                     Type:
-                    <input 
+                    <StyledInput 
                         data-cy="class-type"
                         type="text"
                         name="type"
@@ -59,7 +98,8 @@ export default function Home() {
                         onChange={change}
                     />
                 </label>
-                <label for="startTime">
+                <StyledFieldset>
+                <label htmlFor="startTime">
                     Start Time:
                     <input 
                         data-cy="class-time"
@@ -70,6 +110,8 @@ export default function Home() {
                         onChange={change}
                     />
                 </label>
+                </StyledFieldset>
+
                 <label for="startDate">
                     Start Date:
                     <input 
@@ -126,13 +168,16 @@ export default function Home() {
                         onChange={change}
                     />
                 </label>
-                <button 
+                <StyledButton 
                     data-cy="reset"
                     onClick={reset} 
                     type="reset"
-                >Reset</button>
+                >Reset</StyledButton>
             </form>
             <ClassesList classes={filteredData} />
+            </StyledForm>
+            </StyledFormWrapper>
+            </>
         </div>
     )
 }
