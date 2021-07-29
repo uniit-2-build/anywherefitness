@@ -208,7 +208,7 @@ export default function Home() {
 
 							<StyledInput>
 								<StyledLocation>
-									<label for="location">
+									<label htmlFor="location">
 										Location:
 										<input
 											data-cy="class-location"
@@ -224,13 +224,15 @@ export default function Home() {
 
 							<StyledInput>
 								<StyledIntensity>
-									<label for="intensity">
+									<label htmlFor="intensity">
 										Intensity (1 to 10):
 										<input
 											data-cy="class-intensity"
 											type="number"
 											name="intensity"
 											id="intensity"
+											min={1}
+											max={10}
 											value={formValues.intensity}
 											onChange={change}
 										/>
@@ -240,11 +242,11 @@ export default function Home() {
 
 							<StyledInput>
 								<StyledMaximum>
-									<label for="max">
+									<label htmlFor="max">
 										Max participants:
 										<input
 											data-cy="class-max"
-											type="text"
+											type="number"
 											name="max"
 											id="max"
 											value={formValues.max}
