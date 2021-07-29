@@ -26,6 +26,17 @@ h2 {
 	text-align: center;
 	color: #ffffff;
 }
+
+input {
+display: block;
+width: 100%;
+background-color: #eee;
+border: 1px sold #ddd;
+box-sizing: border-box;
+margin: 10px 0 20px 0;
+padding: 10px;
+}
+
 `;
 
 const sharedStyles = css`
@@ -74,13 +85,7 @@ const StyledButton = styled.button`
     
 `;
 
-const StyledLink = styled.label`
-color: #ffff;
-display: flex;
-justify-content: center;
 
-
-`;
 
 const defaultValues = {
     username: "",
@@ -107,11 +112,11 @@ export default function SignUp() {
 			<>
 				<GlobalStyle />
 
-					<h2>Create an Account:</h2>
+				<h2>Create an Account:</h2>
 				<StyledForm onSubmit={submit}>
-					<label for="username">
+					<label htmlFor="username">
 						Username:
-						<StyledInput
+						<input
 							type="text"
 							name="username"
 							id="username"
@@ -119,9 +124,9 @@ export default function SignUp() {
 							value={formValues.username}
 						/>
 					</label>
-					<label for="password">
+					<label htmlFor="password">
 						Password:
-						<StyledInput
+						<input
 							type="password"
 							name="password"
 							id="password"
@@ -129,9 +134,9 @@ export default function SignUp() {
 							value={formValues.password}
 						/>
 					</label>
-					<label for="confirmPassword">
+					<label htmlFor="confirmPassword">
 						Confirm Password:
-						<StyledInput
+						<input
 							type="password"
 							name="confirmPassword"
 							id="confirmPassword"
@@ -139,9 +144,9 @@ export default function SignUp() {
 							value={formValues.confirmPassword}
 						/>
 					</label>
-					<label for="email">
+					<label htmlFor="email">
 						Email:
-						<StyledInput
+						<input
 							type="email"
 							name="email"
 							id="email"
@@ -152,9 +157,10 @@ export default function SignUp() {
 					<StyledButton data-cy="submit" disabled={error} type="submit">
 						Create Account
 					</StyledButton>
-
+					
+						<Link to="/login">Already have an account?</Link>
+					
 				</StyledForm>
-					<StyledLink to="/login">Already have an account?</StyledLink>
 			</>
 		);
 }
