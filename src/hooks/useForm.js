@@ -9,7 +9,10 @@ const useForm = (formSchema, defaultState) => {
     useEffect(() => {
         formSchema.validate(formValues)
             .then(() => setError(false))
-            .catch(() => setError(true))
+            .catch(err => {
+                console.log(err)
+                setError(true)
+            })
     }, [formValues])
 
     const change = evt => {

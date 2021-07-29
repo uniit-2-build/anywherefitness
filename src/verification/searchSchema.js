@@ -11,10 +11,10 @@ const classSchema = yup.object().shape({
     name: yup.string(),
     type: yup.string(),
     startTime: yup.string(),
-    startDate: yup.date().min(todayString),
-    duration: yup.number().min(5),
-    intensity: yup.number().min(1).max(10),
+    startDate: yup.string(),
+    duration: yup.number(),
+    intensity: yup.number(),
     location: yup.string(),
-    max: yup.number().min(1),
+    max: yup.number(),
 })
 export default classSchema;
