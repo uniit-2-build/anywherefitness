@@ -25,6 +25,7 @@ body {
 
 h2 {
 	text-align: center;
+	color: #ffffff;
 }
 
 
@@ -32,7 +33,7 @@ h2 {
 
 const sharedStyles = css`
 background-color: #eee;
-height: 40px;
+
 border-radius: 5px;
 border: 1px sold #ddd;
 margin: 10px 0 20px 0;
@@ -53,7 +54,7 @@ const StyledForm = styled.form`
 width: 100%;
 max-width: 700px;
 padding: 40px;
-background-color: #ffffff;
+
 border-radius: 10px;
 box-sizing: border-box;
 box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
@@ -62,7 +63,9 @@ box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 const StyledInput = styled.div`
 display: block;
 width: 100%;
-${sharedStyles}
+${sharedStyles};
+
+
 `;
 
 const StyledLocation = styled.label`
@@ -95,6 +98,11 @@ const StyledMaximum = styled.label`
 `;
 
 const StyledList = styled.div`
+	display: block;
+	justify-content: last baseline;
+	width: 100%;
+	box-sizing: border-box;
+	${sharedStyles};
 `; 
 
 const defaultSearch = {
@@ -241,15 +249,15 @@ export default function Home() {
 									</label>
 								</StyledMaximum>
 							</StyledInput>
+						<StyledList>
+							<ClassesList classes={filteredData} />
+						</StyledList>
 
 							<StyledButton data-cy="reset" onClick={reset} type="reset">
 								Reset
 							</StyledButton>
 						</StyledForm>
 
-						<StyledList>
-							<ClassesList classes={filteredData} />
-						</StyledList>
 					</StyledFormWrapper>
 				</>
 			</div>
