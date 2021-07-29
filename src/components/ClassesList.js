@@ -5,7 +5,7 @@ export default function CLassesList(props) {
     const { classes } = props;
     return (
         <ul>
-            {classes.map(c => <ClassCard data={c} key={c.id}/>)}
+            {classes?.map((c, index) => <ClassCard data={c} key={index}/>)}
         </ul>
     )
 }

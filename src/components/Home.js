@@ -106,8 +106,8 @@ const StyledList = styled.div`
 `; 
 
 const defaultSearch = {
-    name: "",
-    type: "",
+    class_name: "",
+    class_type: "",
     startTime: "",
     startDate: "",
     location: "",
@@ -124,20 +124,20 @@ export default function Home() {
     const filteredData = useSearch(initialData, formValues);
     
     useEffect(() => {
-        const url = "https://anywherefitnessunit4.herokuapp.com/api/classes"
-        const getData = () => {
-            axios
-                .get(url)
-                .then(res => setInitialData(res.data))
-                .catch(err => console.log(err))
-                .finally(() => console.log(initialData))
-        }
-        getData();
+        const url = "https://anywherefitnessunit4.herokuapp.com/api/classes";
+        axios
+            .get(url)
+            .then(res => {
+                console.log(res.data)
+                setInitialData(res.data)
+            })
+            .catch(err => console.log(err))
+        
     }, [])
     // for testing 
     useEffect(() => {
-        console.log(filteredData)
-    }, [filteredData])
+        console.log(initialData)
+    }, [initialData])
 
     return (
 			<div>
@@ -147,28 +147,28 @@ export default function Home() {
 					<StyledFormWrapper>
 						<StyledForm onSubmit={(e) => e.preventDefault()}>
 							<StyledInput>
-								<label htmlFor="name">
+								<label htmlFor="class_name">
 									Name:
 									<input
 										data-cy="class-name"
 										type="text"
-										name="name"
-										id="name"
-										value={formValues.name}
+										name="class_name"
+										id="class_name"
+										value={formValues.class_name}
 										onChange={change}
 									/>
 								</label>
 							</StyledInput>
 
 							<StyledInput>
-								<label htmlFor="type">
+								<label htmlFor="class_type">
 									Type:
 									<input
 										data-cy="class-type"
 										type="text"
-										name="type"
-										id="type"
-										value={formValues.type}
+										name="class_type"
+										id="class_type"
+										value={formValues.class_type}
 										onChange={change}
 									/>
 								</label>
