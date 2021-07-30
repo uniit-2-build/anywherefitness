@@ -37,6 +37,11 @@ margin: 10px 0 20px 0;
 padding: 10px;
 }
 
+div {
+    padding-top: 2rem;
+    text-align: center;
+}
+
 `;
 
 const sharedStyles = css`
@@ -85,7 +90,14 @@ const StyledButton = styled.button`
     
 `;
 
-
+const NavLink = styled(Link)`
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: red;
+		background: blue;
+	}
+`;
 
 const defaultValues = {
     username: "",
@@ -157,9 +169,9 @@ export default function SignUp() {
 					<StyledButton data-cy="submit" disabled={error} type="submit">
 						Create Account
 					</StyledButton>
-					
-						<Link to="/login">Already have an account?</Link>
-					
+					<div>
+						<NavLink to="/login">Already have an account?</NavLink>
+					</div>
 				</StyledForm>
 			</>
 		);

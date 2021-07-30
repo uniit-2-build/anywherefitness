@@ -3,7 +3,10 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import ClassCreation from "./components/ClassCreation";
-import "./styling/reset.css"
+import Navbar from './components/Navbar/Navbar'
+
+
+
 
 function App() {
   return (
@@ -20,6 +23,11 @@ function App() {
         </Route>
         <Route path="/create-class">
           <ClassCreation />
+
+          <Route path="/welcome">
+            <Navbar />
+
+          </Route>
         </Route>
       </Switch>
     </main>
