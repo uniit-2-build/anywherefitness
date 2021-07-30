@@ -19,26 +19,33 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	background: linear-gradient(to bottom, #24C6DC, #514A9D);
 	height: 100%;
-	margin: 0;
+	margin-bottom: 20%;
 	color: #555;
 
 }
 	
 
 h2 {
-	text-align: center;
-	color: #ffffff;
-	margin-top: 30px;
+
+    display:flex;
+    justify-content: center;
+	padding-bottom: 6rem;
+	padding-top: 2rem;
+	color: #eee;
 
 }
 
 .container {
-	padding-right: 30rem;
-	
-	margin-left: 16rem;
-	margin-top: 2rem;
-	
+padding-bottom: 2rem;
+    display:flex;
+    justify-content: center;
 
+}
+
+.conReset {
+	padding-bottom: 2rem;
+    display:flex;
+    justify-content: center;
 }
 
 `;
@@ -84,18 +91,18 @@ const StyledLocation = styled.label`
 `;
 
 const StyledButton = styled.button`
-display: block;
-background-color:  #f7797d;
-color: #fff;
-font-size: .9rem;
-border: 0;
-border-radius: 5px;
-height: 40px;
-padding: 0 20px;
-cursor: pointer;
-box-sizing: border-box;
-
-
+	display: block;
+	background-color: #f7797d;
+	color: #fff;
+	font-size: 0.9rem;
+	border: 0;
+	border-radius: 5px;
+	height: 40px;
+	width: 10rem;
+	padding: 0 20px;
+	margin-top: 3rem;
+	cursor: pointer;
+	box-sizing: border-box;
 `;
 
 const NavLink = styled(Link)`
@@ -164,10 +171,12 @@ export default function Home() {
 				<>
 					<GlobalStyle />
 					<h2>Class Timetable</h2>
-		
 
 					<StyledFormWrapper>
 						<StyledForm onSubmit={(e) => e.preventDefault()}>
+							<div className="container">
+								<NavLink to="/welcome">HOME</NavLink>
+							</div>
 							<StyledInput>
 								<label htmlFor="class_name">
 									Name:
@@ -197,35 +206,31 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								
-									<label htmlFor="startTime">
-										Start Time:
-										<input
-											data-cy="class-time"
-											type="time"
-											name="startTime"
-											id="startTime"
-											value={formValues.startTime}
-											onChange={change}
-										/>
-									</label>
-								
+								<label htmlFor="startTime">
+									Start Time:
+									<input
+										data-cy="class-time"
+										type="time"
+										name="startTime"
+										id="startTime"
+										value={formValues.startTime}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
-								
-									<label htmlFor="startDate">
-										Start Date:
-										<input
-											data-cy="class-date"
-											type="date"
-											name="startDate"
-											id="startDate"
-											value={formValues.startDate}
-											onChange={change}
-										/>
-									</label>
-								
+								<label htmlFor="startDate">
+									Start Date:
+									<input
+										data-cy="class-date"
+										type="date"
+										name="startDate"
+										id="startDate"
+										value={formValues.startDate}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
@@ -245,51 +250,44 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								
-									<label htmlFor="intensity">
-										Intensity (1 to 10):
-										<input
-											data-cy="class-intensity"
-											type="number"
-											name="intensity"
-											id="intensity"
-											min={1}
-											max={10}
-											value={formValues.intensity}
-											onChange={change}
-										/>
-									</label>
-								
+								<label htmlFor="intensity">
+									Intensity (1 to 10):
+									<input
+										data-cy="class-intensity"
+										type="number"
+										name="intensity"
+										id="intensity"
+										min={1}
+										max={10}
+										value={formValues.intensity}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
-								
-									<label htmlFor="max">
-										Max participants:
-										<input
-											data-cy="class-max"
-											type="number"
-											name="max"
-											id="max"
-											value={formValues.max}
-											onChange={change}
-										/>
-									</label>
-								
+								<label htmlFor="max">
+									Max participants:
+									<input
+										data-cy="class-max"
+										type="number"
+										name="max"
+										id="max"
+										value={formValues.max}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
-						<StyledList>
-							<ClassesList classes={filteredData} />
-						</StyledList>
-
-							<StyledButton data-cy="reset" onClick={reset} type="reset">
-								Reset
-							</StyledButton>
+							<StyledList>
+								<ClassesList classes={filteredData} />
+							</StyledList>
+							<div className="conReset">
+								<StyledButton data-cy="reset" onClick={reset} type="reset">
+									Reset
+								</StyledButton>
+							</div>
 						</StyledForm>
-
 					</StyledFormWrapper>
-		<div className='container'>
-			<NavLink to="/welcome">HOME</NavLink>
-		</div>
 				</>
 			</div>
 		);
