@@ -94,6 +94,7 @@ const StyledButton = styled.button`
 `;
 const NavLink = styled(Link)`
 	display: block;
+    text-align: center;
 	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
 	color: #fff;
 	font-size: 0.9rem;
