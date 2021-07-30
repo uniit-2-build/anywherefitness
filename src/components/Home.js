@@ -5,11 +5,13 @@ import useSearch from '../hooks/useSearch';
 import searchSchema from "../verification/searchSchema"
 import ClassesList from "./ClassesList";
 import styled, { createGlobalStyle, css } from 'styled-components'
+import Navbar from './Navbar/Navbar'
+import { Link } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 html {
 	height: 100%;
-	
+
 
 }
 
@@ -26,8 +28,18 @@ body {
 h2 {
 	text-align: center;
 	color: #ffffff;
+	margin-top: 30px;
+
 }
 
+.container {
+	padding-right: 30rem;
+	
+	margin-left: 16rem;
+	margin-top: 2rem;
+	
+
+}
 
 `;
 
@@ -83,19 +95,27 @@ padding: 0 20px;
 cursor: pointer;
 box-sizing: border-box;
 
+
 `;
 
-const StyledStartTime = styled.label`
+const NavLink = styled(Link)`
+	display: block;
+	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+	color: #fff;
+	font-size: 0.9rem;
+	border: 1px;
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 60px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	box-shadow: 5px 10px 8px #808080;
 `;
 
-const StyledStartDate = styled.label`
-`;
 
-const StyledIntensity = styled.label`
-`;
-
-const StyledMaximum = styled.label`
-`;
 
 const StyledList = styled.div`
 	display: block;
@@ -144,6 +164,12 @@ export default function Home() {
 				<>
 					<GlobalStyle />
 					<h2>Class Timetable</h2>
+		
+					<div className='container'>
+						<NavLink to="/welcome">HOME</NavLink>
+					</div>
+			
+
 					<StyledFormWrapper>
 						<StyledForm onSubmit={(e) => e.preventDefault()}>
 							<StyledInput>
@@ -175,7 +201,7 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								<StyledStartTime>
+								
 									<label htmlFor="startTime">
 										Start Time:
 										<input
@@ -187,11 +213,11 @@ export default function Home() {
 											onChange={change}
 										/>
 									</label>
-								</StyledStartTime>
+								
 							</StyledInput>
 
 							<StyledInput>
-								<StyledStartDate>
+								
 									<label htmlFor="startDate">
 										Start Date:
 										<input
@@ -203,7 +229,7 @@ export default function Home() {
 											onChange={change}
 										/>
 									</label>
-								</StyledStartDate>
+								
 							</StyledInput>
 
 							<StyledInput>
@@ -223,7 +249,7 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								<StyledIntensity>
+								
 									<label htmlFor="intensity">
 										Intensity (1 to 10):
 										<input
@@ -237,11 +263,11 @@ export default function Home() {
 											onChange={change}
 										/>
 									</label>
-								</StyledIntensity>
+								
 							</StyledInput>
 
 							<StyledInput>
-								<StyledMaximum>
+								
 									<label htmlFor="max">
 										Max participants:
 										<input
@@ -253,7 +279,7 @@ export default function Home() {
 											onChange={change}
 										/>
 									</label>
-								</StyledMaximum>
+								
 							</StyledInput>
 						<StyledList>
 							<ClassesList classes={filteredData} />

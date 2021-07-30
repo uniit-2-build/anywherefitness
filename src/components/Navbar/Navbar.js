@@ -186,6 +186,7 @@ export default function Navbar() {
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
 
+
     return (
 			<>
 				<GlobalStyle />
@@ -211,6 +212,7 @@ export default function Navbar() {
 				
 
 						<li className="nav-item">
+                        
 							<Link to="/" className="nav-links" onClick={closeMobileMenu}>
 								User Time Table
 							</Link>
