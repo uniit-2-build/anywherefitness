@@ -24,6 +24,7 @@ body {
 h2 {
 	text-align: center;
 	color: #ffffff;
+	margin-top: 30px;
 }
 
 input {
@@ -39,6 +40,15 @@ padding: 10px;
 div {
     padding-top: 2rem;
     text-align: center;
+}
+
+.container {
+	padding-right: 30rem;
+	
+	margin-left: 16rem;
+	margin-top: 2rem;
+	
+
 }
 
 `;
@@ -91,6 +101,23 @@ const NavLink = styled(Link)`
 `;
 
 
+const StyledLink = styled(Link)`
+	display: block;
+	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+	color: #fff;
+	font-size: 0.9rem;
+	border: 1px;
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 60px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	box-shadow: 5px 10px 8px #6f8faf;
+`;
+
 
 
 
@@ -110,9 +137,17 @@ export default function Login() {
     }
 
     return (
+		<div>
 			<>
 				<GlobalStyle />
-					<h2>Login to Account</h2>
+
+				<h2>Login to Account</h2>
+
+				<div className="container">
+					<StyledLink to="/welcome">HOME</StyledLink>
+				</div>
+
+
 				<StyledForm onSubmit={submit}>
 					<label for="username">
 						Username:
@@ -142,5 +177,7 @@ export default function Login() {
 					</div>
 				</StyledForm>
 			</>
+	</div>
 		);
+
 }

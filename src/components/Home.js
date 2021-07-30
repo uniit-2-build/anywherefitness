@@ -112,7 +112,7 @@ const NavLink = styled(Link)`
 	display: flex;
 	justify-content: center;
 	padding-top: 10px;
-	box-shadow: 5px 10px 8px #808080;
+	box-shadow: 5px 10px 8px #6f8faf;
 `;
 
 

@@ -2,6 +2,8 @@ import React from 'react';
 import useForm from "../hooks/useForm";
 import classSchema from "../verification/classSchema"
 import styled, { createGlobalStyle, css } from "styled-components";
+import { Link } from "react-router-dom";
+
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -21,8 +23,11 @@ body {
 	
 
 h2 {
-	text-align: center;
+	
+    display: flex;
+    justify-content: center;
 	color: #ffffff;
+    text-align: center;
 }
 
 input {
@@ -38,12 +43,17 @@ opacity: 0.8;
 
 }
 
-div {
-    padding-top: 0rem;
-    display: flex;
-    justify-content: center;
-}
 
+
+
+.container {
+	padding-right: 30rem;
+	
+	margin-left: 16rem;
+	margin-top: 2rem;
+	
+
+}
 `;
 
 const sharedStyles = css`
@@ -56,6 +66,7 @@ const sharedStyles = css`
 `;
 
 const StyledForm = styled.form`
+
 	width: 100%;
 	max-width: 700px;
 	padding: 100px;
@@ -79,6 +90,22 @@ const StyledButton = styled.button`
 	margin-top: 3rem;
 	cursor: pointer;
 	box-sizing: border-box;
+`;
+const NavLink = styled(Link)`
+	display: block;
+	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+	color: #fff;
+	font-size: 0.9rem;
+	border: 1px;
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 60px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	box-shadow: 5px 10px 8px #6f8faf;
 `;
 
 
@@ -104,110 +131,114 @@ export default function ClassCreation() {
     }
 
     return (
-        <> 
-        <GlobalStyle />
-        <h2>Find your class</h2>
-        <StyledForm onSubmit={submit}>
-            <label for="name">
-                Name:
-                <input 
-                    data-cy="class-name"
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={formValues.name}
-                    onChange={change}
-                />
-            </label>
-            <label for="type">
-                Type:
-                <input 
-                    data-cy="class-type"
-                    type="text"
-                    name="type"
-                    id="type"
-                    value={formValues.type}
-                    onChange={change}
-                />
-            </label>
-            <label for="startTime">
-                Start Time:
-                <input 
-                    data-cy="class-time"
-                    type="time"
-                    name="startTime"
-                    id="startTime"
-                    value={formValues.startTime}
-                    onChange={change}
-                />
-            </label>
-            <label for="startDate">
-                Start Date:
-                <input 
-                    data-cy="class-date"
-                    type="date"
-                    name="startDate"
-                    id="startDate"
-                    value={formValues.startDate}
-                    onChange={change}
-                />
-            </label>
-            <label for="location">
-                Location:
-                <input 
-                    data-cy="class-location"
-                    type="text"
-                    name="location"
-                    id="location"
-                    value={formValues.location}
-                    onChange={change}
-                />
-            </label>
-            <label for="duration">
-                Duration (minutes):
-                <input 
-                    step={5}
-                    data-cy="class-duration"
-                    type="number"
-                    name="duration"
-                    id="duration"
-                    value={formValues.duration}
-                    onChange={change}
-                />
-            </label>
-            <label for="intensity">
-                Intensity (1 to 10):
-                <input 
-                    step={1}
-                    data-cy="class-intensity"
-                    type="number"
-                    name="intensity"
-                    id="intensity"
-                    value={formValues.intensity}
-                    onChange={change}
-                />
-            </label>
-            <label for="max">
-                Max participants:
-                <input 
-                    data-cy="class-max"
-                    step={1}
-                    type="text"
-                    name="max"
-                    id="max"
-                    value={formValues.max}
-                    onChange={change}
-                />
-            </label>
-            <div>
-            <StyledButton 
-                data-cy="class-submit"
-                disabled={error}
-                type="submit"
-            >Submit</StyledButton>
-        </div>
-        </StyledForm>
-        </>
+        <div>
+			<>
+				<GlobalStyle />
+				<h2>Find your class</h2>
 
-    )
+				<div className="container">
+					<NavLink to="/welcome">HOME</NavLink>
+				</div>
+
+				<StyledForm onSubmit={submit}>
+					<label for="name">
+						Name:
+						<input
+							data-cy="class-name"
+							type="text"
+							name="name"
+							id="name"
+							value={formValues.name}
+							onChange={change}
+						/>
+					</label>
+					<label for="type">
+						Type:
+						<input
+							data-cy="class-type"
+							type="text"
+							name="type"
+							id="type"
+							value={formValues.type}
+							onChange={change}
+						/>
+					</label>
+					<label for="startTime">
+						Start Time:
+						<input
+							data-cy="class-time"
+							type="time"
+							name="startTime"
+							id="startTime"
+							value={formValues.startTime}
+							onChange={change}
+						/>
+					</label>
+					<label for="startDate">
+						Start Date:
+						<input
+							data-cy="class-date"
+							type="date"
+							name="startDate"
+							id="startDate"
+							value={formValues.startDate}
+							onChange={change}
+						/>
+					</label>
+					<label for="location">
+						Location:
+						<input
+							data-cy="class-location"
+							type="text"
+							name="location"
+							id="location"
+							value={formValues.location}
+							onChange={change}
+						/>
+					</label>
+					<label for="duration">
+						Duration (minutes):
+						<input
+							step={5}
+							data-cy="class-duration"
+							type="number"
+							name="duration"
+							id="duration"
+							value={formValues.duration}
+							onChange={change}
+						/>
+					</label>
+					<label for="intensity">
+						Intensity (1 to 10):
+						<input
+							step={1}
+							data-cy="class-intensity"
+							type="number"
+							name="intensity"
+							id="intensity"
+							value={formValues.intensity}
+							onChange={change}
+						/>
+					</label>
+					<label for="max">
+						Max participants:
+						<input
+							data-cy="class-max"
+							step={1}
+							type="text"
+							name="max"
+							id="max"
+							value={formValues.max}
+							onChange={change}
+						/>
+					</label>
+					<div>
+						<StyledButton data-cy="class-submit" disabled={error} type="submit">
+							Submit
+						</StyledButton>
+					</div>
+				</StyledForm>
+			</>
+                </div>
+		);
 }

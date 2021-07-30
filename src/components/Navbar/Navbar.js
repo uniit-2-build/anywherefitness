@@ -177,6 +177,23 @@ body {
 }
 `;
 
+const NavLink = styled(Link)`
+	display: block;
+	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+	color: #fff;
+	font-size: 0.9rem;
+	border: 1px;
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 60px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	box-shadow: 5px 10px 8px #6f8faf;
+  `;
+
 
 
 export default function Navbar() {
@@ -209,10 +226,7 @@ export default function Navbar() {
 							</Link>
 						</li>
 
-				
-
 						<li className="nav-item">
-                        
 							<Link to="/" className="nav-links" onClick={closeMobileMenu}>
 								User Time Table
 							</Link>
@@ -226,21 +240,18 @@ export default function Navbar() {
 							>
 								Instructor Time Table
 							</Link>
-                            </li>
+						</li>
 
-							<li className="nav-item">
-								<Link
-									to="/login"
-									className="nav-links"
-									onClick={closeMobileMenu}
-								>
-									Login
-								</Link>
-							</li>
-						
+						<li className="nav-item">
+							<Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+								Login
+							</Link>
+						</li>
 					</ul>
-                    <Button />
+					<Button />
 				</nav>
+				<h1>WELCOME</h1>
+				
 			</>
 		);
 }
