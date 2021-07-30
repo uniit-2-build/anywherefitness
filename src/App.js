@@ -23,12 +23,12 @@ function App() {
         </Route>
         <Route path="/create-class">
           <ClassCreation />
-
-          <Route path="/welcome">
-            <Navbar />
-
-          </Route>
         </Route>
+        <Route path="/welcome">
+          <Navbar />
+        </Route>
+        
+
       </Switch>
     </main>
   );

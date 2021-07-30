@@ -112,7 +112,7 @@ export default function Login() {
     return (
 			<>
 				<GlobalStyle />
-					<h2>Create an Account:</h2>
+					<h2>Login to Account</h2>
 				<StyledForm onSubmit={submit}>
 					<label for="username">
 						Username:
