@@ -27,6 +27,14 @@ body {
 	margin: 0;
 	color: #555;
 
+
+h1 {
+   display: flex;
+    justify-content: center;
+	color: #ffffff;
+    text-align: center;
+} 
+
 .navbar {
   background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
   height: 80px;
