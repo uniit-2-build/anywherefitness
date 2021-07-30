@@ -7,6 +7,9 @@ import styled, { createGlobalStyle, css } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 html {
 	height: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
 	
 
 }
@@ -17,6 +20,10 @@ body {
 	height: 100%;
 	margin: 0;
 	color: #555;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+
 
 }
 	
@@ -43,11 +50,23 @@ div {
 }
 
 .container {
-	padding-right: 30rem;
-	
-	margin-left: 16rem;
-	margin-top: 2rem;
-	
+	padding-bottom: 2rem;
+margin-top: -60px;
+
+}
+
+.conSubmit {
+    padding-bottom: 2rem;
+    display:flex;
+    justify-content: center;
+    
+    
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 7rem;
 
 }
 
@@ -121,6 +140,7 @@ const StyledLink = styled(Link)`
 
 
 
+
 const defaultValues = {
     username: "",
     password: "",
@@ -137,47 +157,51 @@ export default function Login() {
     }
 
     return (
-		<div>
-			<>
-				<GlobalStyle />
-
-				<h2>Login to Account</h2>
-
-				<div className="container">
-					<StyledLink to="/welcome">HOME</StyledLink>
-				</div>
+			<div>
+				<>
+					<GlobalStyle />
 
 
-				<StyledForm onSubmit={submit}>
-					<label for="username">
-						Username:
-						<input
-							type="text"
-							name="username"
-							id="username"
-							onChange={change}
-							value={formValues.username}
-						/>
-					</label>
-					<label for="password">
-						Password:
-						<input
-							type="password"
-							name="password"
-							id="password"
-							onChange={change}
-							value={formValues.password}
-						/>
-					</label>
-					<StyledButton disabled={error} type="submit">
-						Login
-					</StyledButton>
-					<div>
-						<NavLink to="/sign-up">Create an account?</NavLink>
+					<StyledForm onSubmit={submit}>
+					<div className="header">
+						<h2>Login to Account</h2>
 					</div>
-				</StyledForm>
-			</>
-	</div>
+						<div className="container">
+							<StyledLink to="/welcome">HOME</StyledLink>
+						</div>
+						<label for="username">
+							Username:
+							<input
+								type="text"
+								name="username"
+								id="username"
+								onChange={change}
+								value={formValues.username}
+							/>
+						</label>
+						<label for="password">
+							Password:
+							<input
+								type="password"
+								name="password"
+								id="password"
+								onChange={change}
+								value={formValues.password}
+							/>
+						</label>
+
+						<div className="conSubmit">
+							<StyledButton disabled={error} type="submit">
+								Login
+							</StyledButton>
+						</div>
+
+						<div>
+							<NavLink to="/sign-up">Create an account?</NavLink>
+						</div>
+					</StyledForm>
+				</>
+			</div>
 		);
 
 }
