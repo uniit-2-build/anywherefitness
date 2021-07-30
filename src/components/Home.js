@@ -165,10 +165,6 @@ export default function Home() {
 					<GlobalStyle />
 					<h2>Class Timetable</h2>
 		
-					<div className='container'>
-						<NavLink to="/welcome">HOME</NavLink>
-					</div>
-			
 
 					<StyledFormWrapper>
 						<StyledForm onSubmit={(e) => e.preventDefault()}>
@@ -291,7 +287,11 @@ export default function Home() {
 						</StyledForm>
 
 					</StyledFormWrapper>
+		<div className='container'>
+			<NavLink to="/welcome">HOME</NavLink>
+		</div>
 				</>
 			</div>
 		);
-}
+
+	}
