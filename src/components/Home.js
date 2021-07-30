@@ -5,11 +5,13 @@ import useSearch from '../hooks/useSearch';
 import searchSchema from "../verification/searchSchema"
 import ClassesList from "./ClassesList";
 import styled, { createGlobalStyle, css } from 'styled-components'
+import Navbar from './Navbar/Navbar'
+import { Link } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 html {
 	height: 100%;
-	
+
 
 }
 
@@ -17,17 +19,34 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	background: linear-gradient(to bottom, #24C6DC, #514A9D);
 	height: 100%;
-	margin: 0;
+	margin-bottom: 20%;
 	color: #555;
 
 }
 	
 
 h2 {
-	text-align: center;
-	color: #ffffff;
+
+    display:flex;
+    justify-content: center;
+	padding-bottom: 6rem;
+	padding-top: 2rem;
+	color: #eee;
+
 }
 
+.container {
+padding-bottom: 2rem;
+    display:flex;
+    justify-content: center;
+
+}
+
+.conReset {
+	padding-bottom: 2rem;
+    display:flex;
+    justify-content: center;
+}
 
 `;
 
@@ -72,30 +91,38 @@ const StyledLocation = styled.label`
 `;
 
 const StyledButton = styled.button`
-display: block;
-background-color:  #f7797d;
-color: #fff;
-font-size: .9rem;
-border: 0;
-border-radius: 5px;
-height: 40px;
-padding: 0 20px;
-cursor: pointer;
-box-sizing: border-box;
-
+	display: block;
+	background-color: #f7797d;
+	color: #fff;
+	font-size: 0.9rem;
+	border: 0;
+	border-radius: 5px;
+	height: 40px;
+	width: 10rem;
+	padding: 0 20px;
+	margin-top: 3rem;
+	cursor: pointer;
+	box-sizing: border-box;
 `;
 
-const StyledStartTime = styled.label`
+const NavLink = styled(Link)`
+	display: block;
+	background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+	color: #fff;
+	font-size: 0.9rem;
+	border: 1px;
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 60px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	box-shadow: 5px 10px 8px #6f8faf;
 `;
 
-const StyledStartDate = styled.label`
-`;
 
-const StyledIntensity = styled.label`
-`;
-
-const StyledMaximum = styled.label`
-`;
 
 const StyledList = styled.div`
 	display: block;
@@ -144,8 +171,12 @@ export default function Home() {
 				<>
 					<GlobalStyle />
 					<h2>Class Timetable</h2>
+
 					<StyledFormWrapper>
 						<StyledForm onSubmit={(e) => e.preventDefault()}>
+							<div className="container">
+								<NavLink to="/welcome">HOME</NavLink>
+							</div>
 							<StyledInput>
 								<label htmlFor="class_name">
 									Name:
@@ -175,35 +206,31 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								<StyledStartTime>
-									<label htmlFor="startTime">
-										Start Time:
-										<input
-											data-cy="class-time"
-											type="time"
-											name="startTime"
-											id="startTime"
-											value={formValues.startTime}
-											onChange={change}
-										/>
-									</label>
-								</StyledStartTime>
+								<label htmlFor="startTime">
+									Start Time:
+									<input
+										data-cy="class-time"
+										type="time"
+										name="startTime"
+										id="startTime"
+										value={formValues.startTime}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
-								<StyledStartDate>
-									<label htmlFor="startDate">
-										Start Date:
-										<input
-											data-cy="class-date"
-											type="date"
-											name="startDate"
-											id="startDate"
-											value={formValues.startDate}
-											onChange={change}
-										/>
-									</label>
-								</StyledStartDate>
+								<label htmlFor="startDate">
+									Start Date:
+									<input
+										data-cy="class-date"
+										type="date"
+										name="startDate"
+										id="startDate"
+										value={formValues.startDate}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
@@ -223,49 +250,46 @@ export default function Home() {
 							</StyledInput>
 
 							<StyledInput>
-								<StyledIntensity>
-									<label htmlFor="intensity">
-										Intensity (1 to 10):
-										<input
-											data-cy="class-intensity"
-											type="number"
-											name="intensity"
-											id="intensity"
-											min={1}
-											max={10}
-											value={formValues.intensity}
-											onChange={change}
-										/>
-									</label>
-								</StyledIntensity>
+								<label htmlFor="intensity">
+									Intensity (1 to 10):
+									<input
+										data-cy="class-intensity"
+										type="number"
+										name="intensity"
+										id="intensity"
+										min={1}
+										max={10}
+										value={formValues.intensity}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
 
 							<StyledInput>
-								<StyledMaximum>
-									<label htmlFor="max">
-										Max participants:
-										<input
-											data-cy="class-max"
-											type="number"
-											name="max"
-											id="max"
-											value={formValues.max}
-											onChange={change}
-										/>
-									</label>
-								</StyledMaximum>
+								<label htmlFor="max">
+									Max participants:
+									<input
+										data-cy="class-max"
+										type="number"
+										name="max"
+										id="max"
+										value={formValues.max}
+										onChange={change}
+									/>
+								</label>
 							</StyledInput>
-						<StyledList>
-							<ClassesList classes={filteredData} />
-						</StyledList>
-
-							<StyledButton data-cy="reset" onClick={reset} type="reset">
-								Reset
-							</StyledButton>
+							<StyledList>
+								<ClassesList classes={filteredData} />
+							</StyledList>
+							<div className="conReset">
+								<StyledButton data-cy="reset" onClick={reset} type="reset">
+									Reset
+								</StyledButton>
+							</div>
 						</StyledForm>
-
 					</StyledFormWrapper>
 				</>
 			</div>
 		);
-}
+
+	}
