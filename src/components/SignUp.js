@@ -37,6 +37,11 @@ margin: 10px 0 20px 0;
 padding: 10px;
 }
 
+div {
+    padding-top: 2rem;
+    text-align: center;
+}
+
 `;
 
 const sharedStyles = css`
@@ -85,7 +90,14 @@ const StyledButton = styled.button`
     
 `;
 
-
+const NavLink = styled(Link)`
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: red;
+		background: blue;
+	}
+`;
 
 const defaultValues = {
     username: "",
@@ -117,6 +129,7 @@ export default function SignUp() {
 					<label htmlFor="username">
 						Username:
 						<input
+							data-cy="username"
 							type="text"
 							name="username"
 							id="username"
@@ -127,6 +140,7 @@ export default function SignUp() {
 					<label htmlFor="password">
 						Password:
 						<input
+							data-cy="password"
 							type="password"
 							name="password"
 							id="password"
@@ -137,6 +151,7 @@ export default function SignUp() {
 					<label htmlFor="confirmPassword">
 						Confirm Password:
 						<input
+							data-cy="confirmPassword"
 							type="password"
 							name="confirmPassword"
 							id="confirmPassword"
@@ -147,6 +162,7 @@ export default function SignUp() {
 					<label htmlFor="email">
 						Email:
 						<input
+							data-cy="email"
 							type="email"
 							name="email"
 							id="email"
@@ -157,9 +173,9 @@ export default function SignUp() {
 					<StyledButton data-cy="submit" disabled={error} type="submit">
 						Create Account
 					</StyledButton>
-					
-						<Link to="/login">Already have an account?</Link>
-					
+					<div>
+						<NavLink to="/login">Already have an account?</NavLink>
+					</div>
 				</StyledForm>
 			</>
 		);

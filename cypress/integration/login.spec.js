@@ -27,6 +27,6 @@ describe("login testing", () => {
     })
 })
 
-const nameInput = () => cy.get("[name='username']")
-const passwordInput = () => cy.get("[name='password']")
-const submitInput = () => cy.get("[type='submit']")
+const nameInput = () => cy.get("[data-cy='username']")
+const passwordInput = () => cy.get("[data-cy='password']")
+const submitInput = () => cy.get("[data-cy='submit']")

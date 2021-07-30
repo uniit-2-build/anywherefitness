@@ -27,10 +27,10 @@ describe("sign up form test", () => {
     })
 })
 
-const nameInput = () => cy.get("[name='username']")
-const passwordInput = () => cy.get("[name='password']")
-const confirmPasswordInput = () => cy.get("[name='confirmPassword']")
-const emailInput = () => cy.get("[name='email']")
+const nameInput = () => cy.get("[data-cy='username']")
+const passwordInput = () => cy.get("[data-cy='password']")
+const confirmPasswordInput = () => cy.get("[data-cy='confirmPassword']")
+const emailInput = () => cy.get("[data-cy='email']")
 const submitInput = () => cy.get("[data-cy='submit']")
 
 const allInputs = [
