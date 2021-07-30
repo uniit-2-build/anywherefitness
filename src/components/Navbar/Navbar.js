@@ -228,7 +228,7 @@ export default function Navbar() {
 
 						<li className="nav-item">
 							<Link to="/" className="nav-links" onClick={closeMobileMenu}>
-								User Time Table
+								Class Timetable
 							</Link>
 						</li>
 
@@ -238,7 +238,7 @@ export default function Navbar() {
 								className="nav-links"
 								onClick={closeMobileMenu}
 							>
-								Instructor Time Table
+								Find your class
 							</Link>
 						</li>
 
